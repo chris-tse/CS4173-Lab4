@@ -1,0 +1,49 @@
+http://www.csrflabelgg.com/profile/alice
+Host: www.csrflabelgg.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://www.csrflabelgg.com/activity
+Cookie: Elgg=q1402do2898g8cc1u0kj2frkp0
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+GET: HTTP/1.1 200 OK
+Date: Fri, 09 Nov 2018 00:17:06 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-Frame-Options: SAMEORIGIN
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 3408
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+---------------------
+http://www.csrflabelgg.com/profile/alice
+Host: www.csrflabelgg.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://www.csrflabelgg.com/profile/alice/edit
+Cookie: Elgg=q1402do2898g8cc1u0kj2frkp0
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+POST: HTTP/1.1 200 OK
+Date: Fri, 09 Nov 2018 00:19:30 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-Frame-Options: SAMEORIGIN
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 3452
+Keep-Alive: timeout=5, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
