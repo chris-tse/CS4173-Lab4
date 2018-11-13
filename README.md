@@ -7,7 +7,68 @@ Versions of software used listed here:
 
 ## Task 1: Observing HTTP Request
 
-In this task, we use the provided tool to generate two binary files which result in the same hash when using the MD5 hashing algorithm. By observing the output, we can see that the prefix is appended to the output binary as a 64 length block. There are 3 prefix files included: `63longprefix.txt`, `64longprefix.txt`, and `65longprefix.txt`. These were used to test the outputs when the prefix is a multiple of 64, less than a multiple of 64, or greater than a multiple of 64. 
+In this task, we use the [HTTP Header Live](https://addons.mozilla.org/en-US/firefox/addon/http-header-live/) addon for Firefox in order to observe the structure of the HTTP requests and responses of the `Elgg` social network. Below is a GET request:
+
+```
+http://www.csrflabelgg.com/profile/alice
+Host: www.csrflabelgg.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://www.csrflabelgg.com/activity
+Cookie: Elgg=q1402do2898g8cc1u0kj2frkp0
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+GET: HTTP/1.1 200 OK
+Date: Fri, 09 Nov 2018 00:17:06 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-Frame-Options: SAMEORIGIN
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 3408
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+```
+
+This is a simple GET request of viewing Alice's profile page. The main parameters used are the identifying cookie as the browser is simply requesting information. Looking at a POST request:
+
+```
+http://www.csrflabelgg.com/action/profile/edit
+POST HTTP/1.1 302 Found
+Host:www.csrflabelgg.com
+User-Agent:Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language:en-US,en;q=0.5
+Accept-Encoding:gzip, deflate
+Referer:http://www.csrflabelgg.com/profile/boby/edit
+Content-Type:application/x-www-form-urlencoded
+Content-Length:501
+Cookie:Elgg=lh9gb6ba2qp7cdkhaqqibbofj5
+Connection:keep-alive
+Upgrade-Insecure-Requests:1
+
+__elgg_token=RhUAi0XTAlxiX7zLFRQMDA&__elgg_ts=1542101139&name=Boby&description=<p>I am bobys</p>
+&accesslevel[description]=2&briefdescription=&accesslevel[briefdescription]=2&location=&accesslevel[location]=2&interests=&accesslevel[interests]=2&skills=&accesslevel[skills]=2&contactemail=&accesslevel[contactemail]=2&phone=&accesslevel[phone]=2&mobile=&accesslevel[mobile]=2&website=&accesslevel[website]=2&twitter=&accesslevel[twitter]=2&guid=43
+
+Date:Tue, 13 Nov 2018 09:25:46 GMT
+Server:Apache/2.4.18 (Ubuntu)
+Expires:Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control:no-store, no-cache, must-revalidate
+Pragma:no-cache
+Location:http://www.csrflabelgg.com/profile/boby
+Content-Length:0
+Keep-Alive:timeout=5, max=100
+Connection:Keep-Alive
+Content-Type:text/html;charset=utf-8
+```
+
+This time we see a little more information. Along with the cookie, we also see the body of the POST request which contains the form data, in this case the data to update Boby's profile with. We see two special tokens for security as well the contents of each field in the form and the access display level of each field, and finally the `guid` of the user to be updated. 
 
 ## Task 2: CSRF Attack Using GET Request
 
