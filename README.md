@@ -62,3 +62,4 @@ It is possible to retrieve the `guid` of anyone who visits the page, assuming th
 
 ## Task 4: Implementing a countermeasure for `Elgg`
 
+In this task, we re-enable the disabled CSRF countermeasures and retry the attacks. They now no longer work because the server now expects two extra values, the `__elgg_ts` and `__elgg_token` values in both the GET and POST for these tasks. There is no way for the attacker to know these values before hand since they are generated each time the page is loaded, and is different every time the page is visited. As long as the algorithm used to generate these values are secure enough, the attacker will not be able to predict these values and launch a CSRF attack.
